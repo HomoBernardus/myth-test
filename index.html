@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#FFF7F0" />
+  <title>测试你适合什么副业 ✨</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 背景漂浮装饰 -->
+  <div class="bg-deco" aria-hidden="true">
+    <span class="deco d1">🌷</span>
+    <span class="deco d2">☁️</span>
+    <span class="deco d3">✨</span>
+    <span class="deco d4">🌿</span>
+    <span class="deco d5">🧸</span>
+    <span class="deco d6">🌸</span>
+  </div>
+
+  <!-- ===== 页面 1：密码门 ===== -->
+  <section id="gate" class="screen is-active">
+    <div class="card gate-card">
+      <div class="gate-emoji">🔐</div>
+      <h1 class="gate-title">一个小测试</h1>
+      <p class="gate-sub">测试你最适合什么副业 💼<br />请输入密码进入</p>
+      <form id="gate-form" class="gate-form" autocomplete="off">
+        <input
+          id="gate-input"
+          type="password"
+          class="gate-input"
+          placeholder="输入密码"
+          maxlength="32"
+          aria-label="进入密码"
+        />
+        <button type="submit" class="btn btn-primary btn-block">进入测试</button>
+      </form>
+      <p id="gate-error" class="gate-error" role="alert"></p>
+    </div>
+  </section>
+
+  <!-- ===== 页面 2：介绍页 ===== -->
+  <section id="intro" class="screen">
+    <div class="card intro-card">
+      <div class="intro-emoji">💼</div>
+      <h1 class="intro-title">测试你适合<br /><span class="highlight">什么副业</span></h1>
+      <p class="intro-sub">
+        不是所有副业都适合你<br />
+        这一次，我们帮你找到答案 🌷
+      </p>
+      <div class="intro-meta">
+        <div class="meta-item"><b>24</b><span>道题目</span></div>
+        <div class="meta-item"><b>16</b><span>种结果</span></div>
+        <div class="meta-item"><b>3</b><span>分钟左右</span></div>
+      </div>
+      <p class="intro-tip">凭直觉选择最像你的那个答案，不用纠结～</p>
+      <button id="start-btn" class="btn btn-primary btn-block">开始测试 ✨</button>
+    </div>
+  </section>
+
+  <!-- ===== 页面 3：答题页 ===== -->
+  <section id="quiz" class="screen">
+    <div class="quiz-wrap">
+      <!-- 顶部进度 -->
+      <div class="quiz-top">
+        <button id="back-btn" class="back-btn" aria-label="返回上一题">←</button>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <span id="progress-text" class="progress-text">1/24</span>
+      </div>
+
+      <div class="card quiz-card">
+        <p id="question-index" class="question-index">Q1</p>
+        <h2 id="question-text" class="question-text"></h2>
+        <div id="options" class="options"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 页面 4：结果页 ===== -->
+  <section id="result" class="screen">
+    <div class="result-wrap">
+      <!-- 结果主卡 -->
+      <div class="card result-hero">
+        <p class="result-kicker">你的副业天赋是 ✨</p>
+        <div id="result-emoji" class="result-emoji"></div>
+        <h1 id="result-name" class="result-name"></h1>
+        <p id="result-tagline" class="result-tagline"></p>
+        <div id="match-score" class="match-score"></div>
+      </div>
+
+      <!-- 四维雷达图 -->
+      <div class="card radar-card">
+        <h3 class="section-title">你的四维画像 🌈</h3>
+        <p class="section-sub">实线是你，虚线是这份副业的「理想画像」</p>
+        <div id="radar" class="radar"></div>
+        <div class="radar-legend">
+          <span class="legend-item"><i class="dot dot-you"></i>你的得分</span>
+          <span class="legend-item"><i class="dot dot-ideal"></i>理想画像</span>
+        </div>
+      </div>
+
+      <!-- 四维分析 -->
+      <div class="card">
+        <h3 class="section-title">四维深度分析 📊</h3>
+        <p class="section-sub">看清自己的长处，才知道往哪里发力</p>
+        <div id="dim-analysis" class="dim-analysis"></div>
+      </div>
+
+      <!-- 为什么适合 -->
+      <div class="card">
+        <h3 class="section-title">为什么是它？💡</h3>
+        <p id="result-why" class="result-why"></p>
+      </div>
+
+      <!-- 行动建议 -->
+      <div class="card">
+        <h3 class="section-title">给你的行动建议 🚀</h3>
+        <div class="advice">
+          <div class="advice-item">
+            <div class="advice-icon">👣</div>
+            <div>
+              <h4>第一步</h4>
+              <p id="result-first-step"></p>
+            </div>
+          </div>
+          <div class="advice-item">
+            <div class="advice-icon">💰</div>
+            <div>
+              <h4>变现方式</h4>
+              <p id="result-monetize"></p>
+            </div>
+          </div>
+          <div class="advice-item">
+            <div class="advice-icon">⚠️</div>
+            <div>
+              <h4>避坑提醒</h4>
+              <p id="result-pitfall"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 备选副业 -->
+      <div class="card">
+        <h3 class="section-title">备选方向 🧭</h3>
+        <p class="section-sub">如果主方向不合适，这些也很适合你</p>
+        <div id="backup-results" class="backup-results"></div>
+      </div>
+
+      <!-- 底部按钮 -->
+      <div class="result-actions">
+        <button id="restart-btn" class="btn btn-ghost">重新测试</button>
+        <button id="save-btn" class="btn btn-primary">保存结果图片 📸</button>
+      </div>
+      <p class="result-copy-line"><button id="copy-btn" class="link-btn">复制文字版结果</button></p>
+      <p class="result-footnote">测试结果仅供娱乐参考，请结合自身情况理性选择 💕</p>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- 分享图片弹窗 -->
+  <div id="share-modal" class="share-modal" onclick="if(event.target===this)closeShareModal()">
+    <div class="share-modal-inner">
+      <button id="share-close" class="share-close" type="button" aria-label="关闭" onclick="closeShareModal()">✕</button>
+      <img id="share-img" class="share-img" alt="测试结果分享图" />
+      <p class="share-hint">长按图片保存到相册 👆</p>
+      <div class="share-modal-actions">
+        <a id="share-download" class="btn btn-primary" download="副业天赋测试.png">下载图片</a>
+        <button id="share-close-btn" class="btn btn-ghost" type="button" onclick="closeShareModal()">关闭</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
